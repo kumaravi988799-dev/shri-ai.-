@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#09091d" />
+  <title>NOVA AI — Your smart companion</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-star">✦</span><span>NOVA <b>AI</b></span></a>
+      <div class="top-actions"><span class="status"><i id="statusDot"></i><span id="statusText">Connecting…</span></span><button class="icon-btn" id="settingsBtn" aria-label="Settings">⚙</button></div>
+    </header>
+
+    <main class="layout">
+      <section class="hero-panel">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <div class="hero-copy"><span class="eyebrow">YOUR PERSONAL AI COMPANION</span><h1>Meet <span>NOVA</span></h1><p>Talk naturally. Think together. Get things done.</p></div>
+        <div class="avatar-wrap" id="avatarWrap">
+          <div class="avatar-ring"></div>
+          <img src="/avatar.jpg" alt="NOVA AI avatar" class="avatar" />
+          <div class="avatar-status"><i></i><span id="avatarState">Ready to talk</span></div>
+        </div>
+        <div class="speech-card"><span class="sparkle">✦</span><p id="greeting">नमस्ते! मैं NOVA हूँ। आज मैं आपकी क्या मदद करूँ?</p><small>HINDI · ENGLISH</small></div>
+        <div class="voice-visual" id="voiceVisual" aria-label="Voice activity"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="hero-foot"><span>✧ Always curious</span><span>✧ Always here to help</span></div>
+      </section>
+
+      <section class="workspace">
+        <div class="welcome-row"><div><span class="eyebrow">NOVA WORKSPACE</span><h2>Your ideas, in motion.</h2></div><div class="model-picker"><label for="provider">AI BRAIN</label><select id="provider"><option value="auto">Auto · Gemini + ChatGPT</option><option value="gemini">Gemini</option><option value="openai">ChatGPT</option></select></div></div>
+        <div class="feature-strip">
+          <div class="feature"><span class="feature-icon">◉</span><div><b>Voice chat</b><small>Speak naturally</small></div></div>
+          <div class="feature"><span class="feature-icon">✧</span><div><b>Two AI engines</b><small>Choose your brain</small></div></div>
+          <div class="feature"><span class="feature-icon">⌁</span><div><b>Bilingual</b><small>Hindi + English</small></div></div>
+        </div>
+        <div class="chat-panel">
+          <div class="chat-heading"><div><span class="eyebrow">LIVE CONVERSATION</span><h3>Chat with NOVA</h3></div><button class="text-btn" id="clearBtn">Clear chat ↗</button></div>
+          <div class="messages" id="messages" aria-live="polite">
+            <article class="message assistant"><div class="message-avatar">✦</div><div class="bubble"><span class="sender">NOVA</span><p>नमस्ते! मैं आपकी AI साथी हूँ। हिंदी या English—जिसमें चाहें बात कीजिए।</p><button class="listen-btn" data-speak="नमस्ते! मैं आपकी AI साथी हूँ। हिंदी या English—जिसमें चाहें बात कीजिए।">▶ Listen</button></div></article>
+          </div>
+          <div class="typing hidden" id="typing"><i></i><i></i><i></i><span>NOVA is thinking…</span></div>
+          <form class="composer" id="chatForm">
+            <button type="button" class="mic-btn" id="micBtn" title="Voice input" aria-label="Voice input">🎙</button>
+            <textarea id="prompt" rows="1" placeholder="Ask NOVA anything… / कुछ भी पूछें" autocomplete="off"></textarea>
+            <button class="send-btn" id="sendBtn" type="submit" aria-label="Send message">➤</button>
+          </form>
+          <div class="composer-note"><span>Enter to send · Shift + Enter for new line</span><span>AI may make mistakes</span></div>
+        </div>
+        <div class="quick-actions"><button data-prompt="आज के लिए एक अच्छा productivity plan बनाओ।"><span>▦</span><b>Plan my day</b><small>आज का प्लान बनाएं</small></button><button data-prompt="Explain a difficult topic simply in Hindi and English."><span>✧</span><b>Learn something</b><small>कुछ नया सीखें</small></button><button data-prompt="Help me brainstorm creative ideas for a project."><span>⌕</span><b>Brainstorm</b><small>नए ideas सोचें</small></button></div>
+        <footer>Made with <span>✦</span> NOVA AI <small>· Web preview v1</small></footer>
+      </section>
+    </main>
+  </div>
+  <dialog id="settingsDialog"><form method="dialog"><button class="dialog-close" aria-label="Close">×</button><span class="eyebrow">PREFERENCES</span><h3>NOVA settings</h3><p>Voice replies are played using your browser's speech engine. Microphone input requires browser permission.</p><label class="setting-line"><input type="checkbox" id="autoSpeak" checked /> Speak NOVA's replies automatically</label><label class="setting-line">Voice language<select id="voiceLang"><option value="auto">Auto detect Hindi / English</option><option value="hi-IN">Hindi</option><option value="en-US">English</option></select></label><p class="small-note">Provider API keys are stored on your server, not in this browser.</p><button class="primary-btn">Done</button></form></dialog>
+  <script src="/app.js"></script>
+</body>
+</html>
